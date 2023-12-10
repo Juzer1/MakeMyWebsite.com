@@ -1,90 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback Wall</title>
+  <title>Feedback Page</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f0f8ff; /* Light Blue */
-      color: #333;
+      background-color: #f0f8ff; /* Light blue background */
+      color: #333; /* Dark text color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      padding: 0;
     }
 
-    header {
-      background-color: #007acc; /* Dark Blue */
-      color: #fff;
-      text-align: center;
-      padding: 1em;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .feedback-container {
+      max-width: 600px;
+      width: 100%;
       padding: 20px;
-    }
-
-    .feedback-form {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      text-align: center;
     }
 
-    .feedback-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .feedback-item {
-      background-color: #f0f8ff; /* Light Blue */
-      border-radius: 5px;
+    /* Customize the form based on your Google Form's selectors */
+    input[type="text"], textarea {
+      width: 100%;
       padding: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: 2px solid #3498db; /* Blue border for text fields */
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #3498db; /* Blue submit button */
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Feedback Wall</h1>
-  </header>
+  <div class="feedback-container">
+    <h2>Leave Your Feedback</h2>
+    <p>We value your opinion! Share your thoughts with us.</p>
 
-  <div class="container">
-    <div class="feedback-form">
-      <h2>Leave Your Feedback</h2>
-      <form id="feedbackForm">
-        <label for="feedback">Your Feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea>
-        <br>
-        <button type="button" onclick="submitFeedback()">Submit Feedback</button>
-      </form>
-    </div>
-
-    <h2>Wall of Feedback</h2>
-    <ul class="feedback-list" id="feedbackList">
-      <!-- Feedback items will be added here dynamically -->
-    </ul>
+    <!-- Your Google Form Embed Code Goes Here -->
+    <!-- Example: -->
+    <!-- <iframe src="YOUR_GOOGLE_FORM_EMBED_URL" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScm7PyXQeH6uSJmii9YuSBOtuS9cfo_jnOGqYJYkCphNq0zJA/viewform?embedded=true" width="640" height="451" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 
-  <script>
-    function submitFeedback() {
-      const feedbackText = document.getElementById('feedback').value;
-      if (feedbackText.trim() !== '') {
-        const feedbackList = document.getElementById('feedbackList');
-        const feedbackItem = document.createElement('li');
-        feedbackItem.className = 'feedback-item';
-        feedbackItem.textContent = feedbackText;
-        feedbackList.appendChild(feedbackItem);
-        document.getElementById('feedbackForm').reset();
-      }
-    }
-  </script>
-
 </body>
+
 </html>
