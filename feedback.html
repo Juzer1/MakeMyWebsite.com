@@ -1,60 +1,90 @@
-<!-- feedback.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback Page</title>
-  <!-- Add your CSS links and other head content here -->
+  <title>Feedback Wall</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff; /* Light Blue */
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007acc; /* Dark Blue */
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .feedback-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .feedback-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feedback-item {
+      background-color: #f0f8ff; /* Light Blue */
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
 
-  <!-- section funfacts -->
-  <section>
+  <header>
+    <h1>Feedback Wall</h1>
+  </header>
 
-    <div class="container">
-      
-      <!-- section title -->
-      <h2 class="section-title wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">FEEDBACKS</h2>
-
-      <div class="spacer" data-height="60" style="height: 60px;"></div>
-      
-      <!-- funfacts wrapper -->
-      <div class="testimonials-wrapper slick-initialized slick-slider slick-dotted" role="toolbar">
-        
-        <!-- funfacts item -->
-        <div aria-live="polite" class="slick-list draggable">
-          <div class="slick-track" role="listbox" style="opacity: 1; width: 2800px; transform: translate3d(-700px, 0px, 0px);">
-
-            <div class="testimonial-item text-center mx-auto slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 700px;"></div>
-
-            <div class="testimonial-item text-center mx-auto slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 700px;">
-              <div class="mb-3 mx-auto">
-                <img style="border-radius: 20px;" class="img-responsive" src="feedback-icon-design-concept-communication-260nw-1436533436.webp">           
-              </div>
-              <h4 class="mt-3 mb-0">Testimonials</h4>
-              <div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-                <p class="mb-0">
-                  - This is one of the best apps I've seen. Now my friends and I can chat together. Thank you so much!! - Paid 20$
-                  - Thank you for the help. I wanted to make a profile app for myself. I hope you will remember me. Hahaha. Thanks. - Paid 10$
-                  - Wow! I will definitely give good feedback. I wanted a Mario-like game for myself and to show my friends. Thanks for the help :D. - Paid 10$
-                  - Thanks for the help. Now I have my own website for my brand. This is a very big help for me to grow my brand. Thanks so much. - Paid 50$
-                  <span style="color:#FF0000">B</span><span style="color:#FF3900">e</span> <span style="color:#FF7100">T</span><span style="color:#FFAA00">h</span><span style="color:#FFE300">e</span> <span style="color:#E3FF00">N</span><span style="color:#AAFF00">e</span><span style="color:#71FF00">x</span><span style="color:#39FF00">t</span> <span style="color:#00FF00">O</span><span style="color:#00FF39">n</span><span style="color:#00FF71">e</span> <span style="color:#00FFAA">T</span><span style="color:#00FFE3">o</span> <span style="color:#00E3FF">G</span><span style="color:#00AAFF">i</span><span style="color:#0071FF">v</span><span style="color:#0039FF">e</span> <span style="color:#0000FF">F</span><span style="color:#3900FF">e</span><span style="color:#7100FF">e</span><span style="color:#AA00FF">d</span><span style="color:#E300FF">b</span><span style="color:#FF00E3">a</span><span style="color:#FF00AA">c</span><span style="style:#FF0071">k</span><span style="color:#FF0039">.</span>
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        
-      </div>
-
+  <div class="container">
+    <div class="feedback-form">
+      <h2>Leave Your Feedback</h2>
+      <form id="feedbackForm">
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+      </form>
     </div>
 
-  </section>
+    <h2>Wall of Feedback</h2>
+    <ul class="feedback-list" id="feedbackList">
+      <!-- Feedback items will be added here dynamically -->
+    </ul>
+  </div>
 
-  <!-- Add your JavaScript links and other body content here -->
+  <script>
+    function submitFeedback() {
+      const feedbackText = document.getElementById('feedback').value;
+      if (feedbackText.trim() !== '') {
+        const feedbackList = document.getElementById('feedbackList');
+        const feedbackItem = document.createElement('li');
+        feedbackItem.className = 'feedback-item';
+        feedbackItem.textContent = feedbackText;
+        feedbackList.appendChild(feedbackItem);
+        document.getElementById('feedbackForm').reset();
+      }
+    }
+  </script>
 
 </body>
 </html>
